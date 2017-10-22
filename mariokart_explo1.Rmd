@@ -1,0 +1,89 @@
+---
+title: 'Mariokart Exploration'
+subtitle: "Explore for classroom use"
+author:  "Bruno Fischer Colonimos"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+# header-includes: \usepackage{graphicx} # for unmodded template
+fontsize: 12pt
+urlcolor: "blue"   ## external
+linkcolor: "red" ## internal
+documentclass: article
+classoption: a4paper
+geometry: "left=1.5cm,right=1.5cm,top=1.5cm,bottom=2cm,footskip=1cm"
+footer: \thetitle \ \textemdash \ \thepage 
+output:
+  # # bookdown::pdf_document2:
+  # pdf_document:
+  #   # template: test_latex_temp
+  #   # template: latex_temp2.latex
+  #   # highlight: monochrome
+  #   number_sections: yes
+  #   toc: yes
+  #   toc_depth: 4
+  #   # keep_tex: true
+  #   fig_caption: yes
+    
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 4
+    fig_caption: yes
+---
+
+
+***************************
+
+
+<!-- Some Inline HTML (CSS) , formatting tables -->
+
+<style>
+
+table {
+    width: 100%;
+    border-top-style: solid;
+    border-top-width: medium;
+    border-top-color: initial;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+    border-bottom-color: initial;
+}
+
+</style>
+
+<!-- End Inline HTML -->
+
+
+<!-- Initialization L -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- Beginning -->
+
+Data loading
+=====
+from the package `openintro`, data `marioKart`
+
+```{r getdata, include=FALSE}
+library(openintro)
+data(marioKart)
+
+```
+```{r writedata, echo=TRUE}
+datadir <-  "data" # "."
+fname <- "mariokart_data.csv"
+local({
+     fpath <- file.path(datadir, fname)
+     write.table(x = marioKart , file = fpath, sep = ";", row.names = FALSE)
+})
+
+
+
+```
+
+
+
+
+
+
